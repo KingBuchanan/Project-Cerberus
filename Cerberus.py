@@ -1,11 +1,7 @@
-Python 3.7.0 (v3.7.0:1bf9cc5093, Jun 26 2018, 23:26:24)
-[Clang 6.0 (clang-600.0.57)] on darwin
-Type "copyright", "credits" or "license()" for more information
+import speech_recognition
+import pyttsx3
 
->>>import speech_recognition
-import pyttsx
-
-speech_engine = pyttsx.init('sapi5') # see http://pyttsx.readthedocs.org/en/latest/engine.html#pyttsx.init
+speech_engine = pyttsx3.init('nsss') # see http://pyttsx.readthedocs.org/en/latest/engine.html#pyttsx.init
 speech_engine.setProperty('rate', 150)
 
 def speak(text):
@@ -20,8 +16,8 @@ def listen():
 		audio = recognizer.listen(source)
 
 	try:
-		return recognizer.recognize_sphinx(audio)
-		# or: return recognizer.recognize_google(audio)
+		#return recognizer.recognize_sphinx(audio)
+		 return recognizer.recognize_google(audio)
 	except speech_recognition.UnknownValueError:
 		print("Could not understand audio")
 	except speech_recognition.RequestError as e:
@@ -29,6 +25,6 @@ def listen():
 
 	return ""
 
-speak("Say something!")
-speak("I heard you say " + listen())
+speak("Cerberus has been activated.What can i do for you your highness?")
+listen()
 
